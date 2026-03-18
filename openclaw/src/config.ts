@@ -90,7 +90,7 @@ export function loadConfig(configPath: string): DaemonConfig {
 
   const raw = fs.readFileSync(configPath, "utf8");
   const parsed = parseSimpleYaml(raw);
-  const config = ensureDefaults(parsed as DaemonConfig);
+  const config = ensureDefaults(parsed as unknown as DaemonConfig);
 
   for (const key of REQUIRED_KEYS) {
     const [left, right] = key.split(".");
