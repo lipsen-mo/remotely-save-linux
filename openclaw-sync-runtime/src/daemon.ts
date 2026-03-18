@@ -47,7 +47,7 @@ async function main() {
       const changed = Array.from(queue.values());
       queue.clear();
       try {
-        const result = await core.syncOnce("watch_event");
+        const result = await core.syncOnce("watch_event", false, changed);
         log(
           `sync_once ok changed=${changed.length} uploaded=${result.uploaded_files} deleted=${result.deleted_files} lock=${result.lock_status}`
         );

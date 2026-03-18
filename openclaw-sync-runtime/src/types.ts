@@ -48,6 +48,13 @@ export interface FileSnapshot {
   mtimeMs: number;
 }
 
+export interface RemoteFileSnapshot {
+  path: string;
+  size: number;
+  mtimeMs: number;
+  etag?: string;
+}
+
 export interface LocalState {
   files: Record<string, FileSnapshot>;
   lastSuccessfulSyncAt?: string;
