@@ -1,20 +1,14 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
-    "inlineSourceMap": true,
-    "inlineSources": true,
-    "module": "ESNext",
-    "target": "es6",
+    "target": "ES2022",
+    "module": "NodeNext",
+    "moduleResolution": "NodeNext",
     "strict": true,
-    "allowJs": true,
-    "noImplicitAny": true,
-    "moduleResolution": "node",
-    // "allowSyntheticDefaultImports": true,
-    "resolveJsonModule": true,
     "esModuleInterop": true,
-    "importHelpers": true,
-    "isolatedModules": true,
-    "lib": ["dom", "es5", "scripthost", "es2015", "webworker"]
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "types": ["node"],
+    "lib": ["ES2022"]
   },
-  "include": ["src/global.d.ts", "**/*.ts"]
+  "include": ["openclaw/src/**/*.ts"]
 }
