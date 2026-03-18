@@ -4,8 +4,8 @@
   "description": "Linux-first OpenClaw sync runtime with Alibaba OSS backend.",
   "scripts": {
     "typecheck": "tsc --noEmit -p tsconfig.json",
-    "openclaw:daemon": "tsx openclaw/src/daemon.ts openclaw.config.yaml",
-    "openclaw:cli": "tsx openclaw/src/cli.ts"
+    "runtime:daemon": "tsx openclaw-sync-runtime/src/daemon.ts openclaw.config.yaml",
+    "runtime:cli": "tsx openclaw-sync-runtime/src/cli.ts"
   },
   "keywords": [],
   "author": "",

@@ -37,13 +37,13 @@
 
 ```bash
 # 1) 启动守护进程
-npx tsx openclaw/src/daemon.ts ./openclaw.config.yaml
+npx tsx openclaw-sync-runtime/src/daemon.ts ./openclaw.config.yaml
 
 # 2) OpenClaw 或运维侧触发一次同步
-npx tsx openclaw/src/cli.ts sync_once --config ./openclaw.config.yaml --json
+npx tsx openclaw-sync-runtime/src/cli.ts sync_once --config ./openclaw.config.yaml --json
 
 # 3) 查询状态
-npx tsx openclaw/src/cli.ts status --config ./openclaw.config.yaml --json
+npx tsx openclaw-sync-runtime/src/cli.ts status --config ./openclaw.config.yaml --json
 ```
 
 ## 5. 后续文档维护原则

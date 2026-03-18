@@ -5,6 +5,11 @@ English | [中文](./README.zh-cn.md)
 `rs-openclaw` is a Linux-first, OpenClaw-oriented sync runtime extracted from Remotely Save.
 It focuses on **event-triggered synchronization** and **OpenClaw callable workflows**.
 
+## Directory naming clarification
+
+To avoid ambiguity around a generic `openclaw` folder name, the implementation directory is renamed to `openclaw-sync-runtime`.
+This folder specifically contains the **Linux sync daemon + CLI runtime callable by OpenClaw**, not the OpenClaw main application itself.
+
 ## Project Positioning
 
 This repository is **not** a generic multi-cloud Obsidian plugin distribution.
@@ -24,7 +29,7 @@ Current focus is:
 - JSON machine-readable CLI output for OpenClaw integration
 - Audit-friendly lock and sync runtime records
 
-See implementation details in [openclaw/README.md](./openclaw/README.md).
+See implementation details in [openclaw-sync-runtime/README.md](./openclaw-sync-runtime/README.md).
 
 ## Out-of-Scope (Removed)
 
@@ -38,19 +43,23 @@ The following are intentionally excluded from this fork target:
 ## Quick Start
 
 ```bash
+# or via npm scripts:
+# npm run runtime:daemon
+# npm run runtime:cli -- status --config ./openclaw.config.yaml --json
+
 # start daemon
-npx tsx openclaw/src/daemon.ts ./openclaw.config.yaml
+npx tsx openclaw-sync-runtime/src/daemon.ts ./openclaw.config.yaml
 
 # run one-shot sync
-npx tsx openclaw/src/cli.ts sync_once --config ./openclaw.config.yaml --json
+npx tsx openclaw-sync-runtime/src/cli.ts sync_once --config ./openclaw.config.yaml --json
 
 # query status
-npx tsx openclaw/src/cli.ts status --config ./openclaw.config.yaml --json
+npx tsx openclaw-sync-runtime/src/cli.ts status --config ./openclaw.config.yaml --json
 ```
 
 ## Documentation
 
-- OpenClaw runtime overview: [openclaw/README.md](./openclaw/README.md)
+- OpenClaw runtime overview: [openclaw-sync-runtime/README.md](./openclaw-sync-runtime/README.md)
 - OpenClaw fork design notes: [docs/openclaw_fork_plan.zh-cn.md](./docs/openclaw_fork_plan.zh-cn.md)
 
 ## Safety Notes
