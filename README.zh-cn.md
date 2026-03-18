@@ -4,6 +4,11 @@
 
 `rs-openclaw` 是从 Remotely Save 抽离并面向 OpenClaw 的 Linux 同步运行时，核心是**触发式同步**与**可被 OpenClaw 调用**。
 
+## 目录命名说明
+
+为避免 `openclaw` 目录名歧义（看不出是“集成代码”还是“同步运行时”），已将实现目录统一更名为 `openclaw-sync-runtime`。
+该目录专门存放 **OpenClaw 可调用的 Linux 同步守护进程与 CLI**，不是 OpenClaw 主程序本体。
+
 ## 项目定位
 
 本仓库当前不是面向通用多云的 Obsidian 插件发行版，重点为：
@@ -22,7 +27,7 @@
 - 便于 OpenClaw 解析的 JSON 输出
 - 可审计的锁与同步运行记录
 
-实现细节见 [openclaw/README.md](./openclaw/README.md)。
+实现细节见 [openclaw-sync-runtime/README.md](./openclaw-sync-runtime/README.md)。
 
 ## 已明确移除的范围
 
@@ -36,19 +41,23 @@
 ## 快速开始
 
 ```bash
+# 或使用 npm scripts:
+# npm run runtime:daemon
+# npm run runtime:cli -- status --config ./openclaw.config.yaml --json
+
 # 启动守护进程
-npx tsx openclaw/src/daemon.ts ./openclaw.config.yaml
+npx tsx openclaw-sync-runtime/src/daemon.ts ./openclaw.config.yaml
 
 # 执行一次同步
-npx tsx openclaw/src/cli.ts sync_once --config ./openclaw.config.yaml --json
+npx tsx openclaw-sync-runtime/src/cli.ts sync_once --config ./openclaw.config.yaml --json
 
 # 查看状态
-npx tsx openclaw/src/cli.ts status --config ./openclaw.config.yaml --json
+npx tsx openclaw-sync-runtime/src/cli.ts status --config ./openclaw.config.yaml --json
 ```
 
 ## 文档入口
 
-- OpenClaw 运行时说明：[openclaw/README.md](./openclaw/README.md)
+- OpenClaw 运行时说明：[openclaw-sync-runtime/README.md](./openclaw-sync-runtime/README.md)
 - OpenClaw Fork 建设方案（中文）：[docs/openclaw_fork_plan.zh-cn.md](./docs/openclaw_fork_plan.zh-cn.md)
 
 ## 安全提示

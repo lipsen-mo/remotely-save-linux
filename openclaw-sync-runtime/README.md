@@ -6,6 +6,8 @@ This is a special customized build target for OpenClaw:
 - only Linux runtime
 - only terminal/daemon/CLI workflow (no UI, no browser-hosted plugin logic)
 
+> Folder purpose: `openclaw-sync-runtime/` is the dedicated runtime implementation for OpenClaw-triggered sync on Linux.
+
 ## Included core capabilities
 
 - `src/core.ts`: incremental push sync based on local state snapshots + remote OSS lock acquisition/release.
@@ -18,13 +20,13 @@ This is a special customized build target for OpenClaw:
 
 ```bash
 # daemon
-npx tsx openclaw/src/daemon.ts ./openclaw.config.yaml
+npx tsx openclaw-sync-runtime/src/daemon.ts ./openclaw.config.yaml
 
 # CLI examples
-npx tsx openclaw/src/cli.ts sync_once --config ./openclaw.config.yaml --json
-npx tsx openclaw/src/cli.ts acquire_lock --config ./openclaw.config.yaml --json
-npx tsx openclaw/src/cli.ts release_lock --config ./openclaw.config.yaml --json
-npx tsx openclaw/src/cli.ts status --config ./openclaw.config.yaml --json
+npx tsx openclaw-sync-runtime/src/cli.ts sync_once --config ./openclaw.config.yaml --json
+npx tsx openclaw-sync-runtime/src/cli.ts acquire_lock --config ./openclaw.config.yaml --json
+npx tsx openclaw-sync-runtime/src/cli.ts release_lock --config ./openclaw.config.yaml --json
+npx tsx openclaw-sync-runtime/src/cli.ts status --config ./openclaw.config.yaml --json
 ```
 
 ## Scope intentionally removed

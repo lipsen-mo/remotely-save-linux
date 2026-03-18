@@ -47,7 +47,7 @@ async function main() {
   const config = loadConfig(configPath);
 
   if (action === "daemon") {
-    printOutput({ success: true, next: `tsx openclaw/src/daemon.ts ${configPath}` }, asJson);
+    printOutput({ success: true, next: `tsx openclaw-sync-runtime/src/daemon.ts ${configPath}` }, asJson);
     return;
   }
 
@@ -105,7 +105,7 @@ async function main() {
         "rs-openclaw-cli release_lock --config openclaw.config.yaml --json",
         "rs-openclaw-cli status --config openclaw.config.yaml --json",
         "rs-openclaw-cli flush_queue --config openclaw.config.yaml --json",
-        "tsx openclaw/src/daemon.ts openclaw.config.yaml",
+        "tsx openclaw-sync-runtime/src/daemon.ts openclaw.config.yaml",
       ],
     },
     asJson
