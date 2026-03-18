@@ -1,0 +1,17 @@
+oss:
+  endpoint: https://oss-cn-hangzhou.aliyuncs.com
+  region: cn-hangzhou
+  bucket: example-bucket
+  accessKeyId: your-ak
+  secretAccessKey: your-sk
+  dataPrefix: vaults/my-vault/
+  lockPrefix: locks/my-vault/
+
+vault:
+  id: my-vault
+  rootDir: /home/user/vaults/my-vault
+  stateDir: /home/user/.local/state/rs-openclaw/my-vault
+  socketPath: /tmp/rs-openclaw-my-vault.sock
+  debounceMs: 1000
+  conflictPolicy: keep_both_and_rename
+  lockTtlSec: 45
