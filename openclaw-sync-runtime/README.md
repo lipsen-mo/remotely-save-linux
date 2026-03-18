@@ -37,6 +37,7 @@ npx tsx openclaw-sync-runtime/src/cli.ts status --config ./openclaw.config.yaml 
 
 ## Current known limits
 
-- Pull/reconcile conflict merge is not implemented yet (current core is push-focused).
+- Daemon watch-triggered sync uses a local-change fast path (push/delete changed files only) for low latency; use explicit `sync_once` / `reconcile` periodically for full bidirectional reconciliation.
+- Pull/reconcile now supports bidirectional file sync with conflict policies (`keep_newer`, `keep_larger`, `keep_both_and_rename`), but it is still file-level and not markdown semantic merge.
 - Runtime state store is currently JSON file; SQL schema is prepared in `src/state_schema.sql` for SQLite migration.
 - OSS lock currently uses `If-None-Match: *`; wiring `x-oss-forbid-overwrite=true` as explicit request header remains a follow-up.
